@@ -228,7 +228,10 @@ class Home extends Component {
     });
     axios
       .get(
-        `${this.state.api}/list?page=${this.state.listIndex}&engine=${this.state.server}`
+        `${this.state.api}/list?page=${this.state.listIndex}&engine=${this.state.server}`,
+        {
+          headers: {"Access-Control-Allow-Origin": "*"}
+         }
       )
       .then((res) => {
         const movies = res.data;
